@@ -72,7 +72,7 @@ customDomains:
 2. 如果您需要定时触发器生效，最佳实践是将`trigger`的`method`方法，添加上`HEAD`类型。这样的话，性能是相对最好的
 
 ## 工作原理
-工作原理比较简单，就是在完成当前部署后。`post-deploy`的钩子函数中，部署一个[定时触发器](https://help.aliyun.com/document_detail/68172.html)的辅助函数，函数名格式为`_FC_PLUGIN_keep-warm-${serviceName}-${functionName}`，这个函数每隔`2s`（默认是2分钟，用户可以通过`cronExpression`参数配置）会触发一次主函数(`Http函数`)中的URL，达到降低冷启动概率的目的。
+工作原理比较简单，就是在完成当前部署后。`post-deploy`的钩子函数中，部署一个[定时触发器](https://help.aliyun.com/document_detail/68172.html)的辅助函数，函数名格式为`_FC_PLUGIN_keep-warm-${serviceName}-${functionName}`，这个函数每隔`2m`（默认是2分钟，用户可以通过`cronExpression`参数配置）会触发一次主函数(`Http函数`)中的URL，达到降低冷启动概率的目的。
 ![](https://img.alicdn.com/imgextra/i2/O1CN01Rlx1J01LM7JOZ1pp4_!!6000000001284-2-tps-1096-596.png)
 
 ### 实现代码

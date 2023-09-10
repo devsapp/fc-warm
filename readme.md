@@ -36,7 +36,7 @@ actions:
   post-deploy: # 在deploy之后运行
     - plugin: keep-warm-fc
       args:
-        url: http://start-fc-http-nodejs14.hello-world-service.1694024725952210.cn-hangzhou.fc.devsapp.net
+        url: ${otherService.output.url.system_url}
 ```
 
 ### 参数说明

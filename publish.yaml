@@ -2,7 +2,7 @@ Type: Plugin
 Name: keep-warm-fc
 Provider:
   - 阿里云
-Version: 0.0.6
+Version: 0.0.7
 Description: 定时触发器预热函数，有效降低冷启动的概率
 HomePage: https://github.com/devsapp/keep-warm-fc
 Tags: #标签详情

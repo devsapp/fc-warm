@@ -33,7 +33,7 @@ module.exports = async function index(inputs, args = {}) {
         runtime: "python3",
         timeout: 1,
         memorySize: 128,
-        instanceConcurrency: 1,
+        instanceConcurrency: 10,
         environmentVariables: {
           KEEP_WARM_FC_URL: args.url,
           KEEP_WARM_FC_METHOD: lodash.toLower(
@@ -47,7 +47,7 @@ module.exports = async function index(inputs, args = {}) {
           type: "timer",
           config: {
             payload: "{}",
-            cronExpression: `@every ${lodash.get(args, "interval", "2m")}`,
+            cronExpression: `@every ${lodash.get(args, "interval", "4m")}`,
             enable: lodash.isUndefined(args.enable) ? true : args.enable,
           },
         },

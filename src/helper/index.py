@@ -34,7 +34,7 @@ def build_fc_client(fc_context):
 def handler(event, context):
     if os.environ.get('KEEP_WARM_FC_URL') is not None:
         url = os.environ['KEEP_WARM_FC_URL']
-        method = os.environ['KEEP_WARM_FC_METHOD'] or 'head'
+        method = os.environ['KEEP_WARM_FC_METHOD']
         res = requests.request(method, url)
         print(res.status_code)
     else:

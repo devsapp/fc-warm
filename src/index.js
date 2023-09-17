@@ -35,6 +35,7 @@ module.exports = async function index(inputs, args = {}) {
         memorySize: 128,
         instanceConcurrency: 10,
         environmentVariables: {
+          FUNCTION_NAME: args.functionName,
           KEEP_WARM_FC_URL: args.url,
           KEEP_WARM_FC_METHOD: lodash.toLower(
             lodash.get(args, "method", "head")

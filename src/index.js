@@ -31,7 +31,7 @@ module.exports = async function index(inputs, args = {}) {
         description: `当前定时函数由Serverless Devs自动创建，用于定时预热函数【${lodash.get(serviceFunction, 'name')}】`,
         codeUri: path.join(__dirname, "helper"),
         runtime: "python3",
-        timeout: 1,
+        timeout: 3,
         memorySize: 128,
         instanceConcurrency: 10,
         environmentVariables: {

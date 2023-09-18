@@ -13,9 +13,9 @@ const logger = new Logger("keep-warm-fc");
 module.exports = async function index(inputs, args = {}) {
   logger.debug(`inputs params: ${JSON.stringify(inputs)}`);
   logger.debug(`args params: ${JSON.stringify(args)}`);
-  if (lodash.isEmpty(args.url)) {
-    throw new Error("missing url parameter in keep-warm-fc plugin.");
-  }
+  // if (lodash.isEmpty(args.url)) {
+  //   throw new Error("missing url parameter in keep-warm-fc plugin.");
+  // }
   const instance = await loadComponent("devsapp/fc");
   const service = lodash.get(inputs, "props.service");
   const serviceFunction = lodash.get(inputs, "props.function");
@@ -35,7 +35,7 @@ module.exports = async function index(inputs, args = {}) {
         memorySize: 128,
         instanceConcurrency: 10,
         environmentVariables: {
-          FUNCTION_NAME: args.functionName,
+          FUNCTION_NAME: serviceFunction,
           KEEP_WARM_FC_URL: args.url,
           KEEP_WARM_FC_METHOD: lodash.toLower(
             lodash.get(args, "method", "head")
